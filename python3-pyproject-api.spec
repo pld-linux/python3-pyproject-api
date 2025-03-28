@@ -13,7 +13,6 @@ Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pyproject-api/
 Source0:	https://files.pythonhosted.org/packages/source/p/pyproject-api/pyproject_api-%{version}.tar.gz
 # Source0-md5:	4ec4e4038061c0a5eb88f9ee4754f809
-Patch0:		no-vcs.patch
 URL:		https://pypi.org/project/pyproject-api/
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-build
@@ -54,7 +53,6 @@ Dokumentacja API modułu Pythona %{module}.
 
 %prep
 %setup -q -n pyproject_api-%{version}
-%patch -P0 -p1
 
 %build
 %py3_build_pyproject
