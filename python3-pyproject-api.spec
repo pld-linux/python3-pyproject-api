@@ -16,6 +16,7 @@ Source0:	https://files.pythonhosted.org/packages/source/p/pyproject-api/pyprojec
 URL:		https://pypi.org/project/pyproject-api/
 BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-build
+BuildRequires:	python3-hatch-vcs >= 0.4
 BuildRequires:	python3-hatchling >= 1.27
 BuildRequires:	python3-installer
 %if %{with tests}
