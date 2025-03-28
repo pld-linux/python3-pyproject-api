@@ -18,15 +18,17 @@ BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
 %if %{with tests}
+BuildRequires:	python3-covdefaults >= 2.3
 BuildRequires:	python3-pytest >= 8.3.4
 BuildRequires:	python3-pytest-cov >= 6
 BuildRequires:	python3-pytest-mock >= 3.14
+BuildRequires:	python3-setuptools >= 75.8
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
 %if %{with doc}
-BuildRequires:	sphinx-pdg-3
-# or
+BuildRequires:	python3-furo >= 2024.8.6
+BuildRequires:	python3-sphinx-autodoc-typehints >= 3
 BuildRequires:	python3-tox
 %endif
 Requires:	python3-modules >= 1:3.2
@@ -58,17 +60,11 @@ Dokumentacja API modułu Pythona %{module}.
 %{__python3} -m zipfile -e build-3/*.whl build-3-test
 # use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-PYTEST_PLUGINS= \
+PYTEST_PLUGINS="pytest_mock" \
 %{__python3} -m pytest -o pythonpath="$PWD/build-3-test" tests
 %endif
 
 %if %{with doc}
-%{__make} -C docs html \
-	SPHINXBUILD=sphinx-build-3
-rm -rf docs/_build/html/_sources
-
-# or
-
 %{_bindir}/tox -e docs
 %endif
 
