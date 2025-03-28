@@ -30,7 +30,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
 %if %{with doc}
 BuildRequires:	python3-furo >= 2024.8.6
-BuildRequires:	python3-sphinx-autodoc-typehints >= 3
+BuildRequires:	python3-sphinx_autodoc_typehints >= 3
 BuildRequires:	python3-tox
 %endif
 Requires:	python3-modules >= 1:3.2
