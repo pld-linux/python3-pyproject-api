@@ -38,8 +38,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-
-%description -l pl.UTF-8
+API to interact with the python pyproject.toml based projects.
 
 %package apidocs
 Summary:	API documentation for Python %{module} module
